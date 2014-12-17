@@ -1,0 +1,21 @@
+{
+  "name": "lyricAnalysis",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "cheerio": "~0.17.0",
+    "eventproxy": "~0.3.1",
+    "express": "~4.10.2",
+    "lodash": "~2.4.1",
+    "pinyin": "~2.3.3",
+    "request": "~2.51.0",
+    "superagent": "~0.20.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
