@@ -7,25 +7,6 @@ var request = require('request');
 
 var mainUrl = 'http://music.baidu.com/';
 
-//var urls = [];
-var baiduMusicUrl = 'http://music.baidu.com/album/73078';//恋恋风尘
-var baiduMusicUrl1 = 'http://music.baidu.com/album/123890520';//在路上
-var baiduMusicUrl2 = 'http://music.baidu.com/album/7288115';//北京的冬天
-var baiduMusicUrl3 = 'http://music.baidu.com/album/111926';//单曲 - 鸟儿的幻想
-var baiduMusicUrl4 = 'http://music.baidu.com/album/7288127';//晴朗
-var baiduMusicUrl5 = 'http://music.baidu.com/album/111924';//校园名曲精选
-var baiduMusicUrl6 = 'http://music.baidu.com/album/165293';//单曲-睡在我上铺的兄弟
-
-//var baiduMusicUrl = 'http://music.baidu.com/album/7288187';//生如夏花
-
-//urls.push(baiduMusicUrl);
-//urls.push(baiduMusicUrl1);
-//urls.push(baiduMusicUrl2);
-//urls.push(baiduMusicUrl3);
-//urls.push(baiduMusicUrl4);
-//urls.push(baiduMusicUrl5);
-//urls.push(baiduMusicUrl6);
-
 var urls = fs.readFileSync('./musicUrlList.txt', 'utf8').split(/\r?\n/ig);
 
 console.log(urls);
