@@ -45,20 +45,18 @@ function getFootFromLyric(filepath,finals_word_map) {
     if(line.startWith('\\[0') && line.endWith(']')) {
       flag = 1;//从下面一行开始就是歌词正文了
       continue;
-    }
+    }  
     
     //找出每行从行尾开始第一个汉字
     if(flag == 1) {
       for(var i=line.length-1;i>=0;i--) {
         var lastChar = line.charAt(i);
         if(lastChar.isCN()) {
-          words.push(lastChar);
           chars += lastChar;
           break;
         }
       }
-    } 
-    
+    }
   }
   var footRes = pinyin(chars, {style: pinyin.STYLE_FINALS});
   for(var i in footRes) {
@@ -170,7 +168,7 @@ for(var i in sortedFoots_wc) {
   var foot_map_words = finals_word_map[foot];
   analysisRes += foot + ' : ' + count + ' -> ' + foot_map_words + '\n';
 }
-analysisRes += '\n下面是比较特殊的歌词，它们的每一行的最后一个字的韵母只有不多于2个，可以说几乎通篇押韵！\n' + specialLyrics;
+analysisRes += '\n下面是比较特殊的歌词，它们的每一行的最后一个字的韵母只有不多于2个，可以说几乎通篇押韵！\n' + specialLyrics + '\n';
 // console.log(analysisRes);
 
 //将结果写入文件
