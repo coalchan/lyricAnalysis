@@ -108,8 +108,8 @@ console.log(words_wc);
 console.log(finals_wc);
 
 //排序并写入文件
-fs.writeFileSync('./res.txt',JSON.stringify(sort(words_wc)),'utf8'); 
-fs.appendFileSync('./res.txt','\n\n' + JSON.stringify(sort(finals_wc)),'utf8');
+fs.writeFileSync('./statRes.txt',JSON.stringify(sort(words_wc)),'utf8'); 
+fs.appendFileSync('./statRes.txt','\n\n' + JSON.stringify(sort(finals_wc)),'utf8');
 
 
 
