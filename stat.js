@@ -45,11 +45,19 @@ function getLastWordInFileLine(filepath) {
       flag = 1;//从下面一行开始就是歌词正文了
       continue;
     }
-    var lastChar = line.charAt(line.length-1);
-    if(flag === 1 && lastChar.isCN()) {
-      words.push(lastChar);
-      chars += lastChar;
-    }      
+    
+    //找出每行从行尾开始第一个汉字
+    if(flag == 1) {
+      for(var i=line.length-1;i>=0;i--) {
+        var lastChar = line.charAt(i);
+        if(lastChar.isCN()) {
+          words.push(lastChar);
+          chars += lastChar;
+          break;
+        }
+      }
+    }
+        
   }
   var finalRes = pinyin(chars, {style: pinyin.STYLE_FINALS});
   for(var i in finalRes) {
@@ -87,7 +95,7 @@ function sort(wc) {
   return res;
 }
 
-// var lyric = getLastWordInFileLine('D:/programme/git/lyricCrawler/lyric/来不及');
+// var lyric = getLastWordInFileLine('./lyric/1168167_每一分一秒.lrc');
 // console.log(lyric);
 
 //开始统计
@@ -110,7 +118,3 @@ console.log(finals_wc);
 //排序并写入文件
 fs.writeFileSync('./statRes.txt',JSON.stringify(sort(words_wc)),'utf8'); 
 fs.appendFileSync('./statRes.txt','\n\n' + JSON.stringify(sort(finals_wc)),'utf8');
-
-
-
-

@@ -46,10 +46,19 @@ function getFootFromLyric(filepath,finals_word_map) {
       flag = 1;//从下面一行开始就是歌词正文了
       continue;
     }
-    var lastChar = line.charAt(line.length-1);
-    if(flag === 1 && lastChar.isCN()) {
-      chars += lastChar;
-    }      
+    
+    //找出每行从行尾开始第一个汉字
+    if(flag == 1) {
+      for(var i=line.length-1;i>=0;i--) {
+        var lastChar = line.charAt(i);
+        if(lastChar.isCN()) {
+          words.push(lastChar);
+          chars += lastChar;
+          break;
+        }
+      }
+    } 
+    
   }
   var footRes = pinyin(chars, {style: pinyin.STYLE_FINALS});
   for(var i in footRes) {
