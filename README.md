@@ -1,16 +1,16 @@
 lyricAnalysis
 =============
-##介绍
-###lyricCrawler.js
+## 介绍
+### lyricCrawler.js
 用来从百度音乐爬取歌词
 
-###stat.js
+### stat.js
 用来对歌词进行韵脚的统计
 
-###analyze
+### analyze
 用来对歌词进一步的分析
 
-##开始
+## 开始
 1. 将pinyin.js覆盖node_modules中的pinyin模块
 `cp ./pinyin.js ./node_modules/pinyin/src/`
 
